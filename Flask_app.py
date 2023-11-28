@@ -18,6 +18,8 @@ def fondos_mutuos():
 def rentabilidades():
     fecha_datepicker = request.form.get('datepicker')
     df = pd.read_csv('uploads/rentabilidades_acumuladas.csv', sep=";", index_col=None)
+#Pasar rentabilidad a porcentaje
+    df['rentabilidad_acumulada'] = (df['rentabilidad_acumulada'] * 100).map('{:.2f}%'.format)
 
     df['fecha'] = pd.to_datetime(df['fecha'], format='%Y-%m-%d')
     fechas = df['fecha'].unique()
@@ -35,7 +37,6 @@ def rentabilidades():
         html = "<p>No hay información para este periodo</p>"
     else:
         html = get_rentabilidades(df_fecha)
-    print(html)
     return render_template('rentabilidades.html', html=html, fecha_actual=fecha_str)
 
 @app.route('/portafolios', methods=['GET', 'POST'])
@@ -65,7 +66,7 @@ def portafolios():
 
 @app.route('/detalle-fondo/<run>', methods=['POST','GET'])
 def detalle_fondo(run):
-    print(run)
+    
     return render_template('detalle-fondo.html', table_data=get_detalle_fondo(run), table_series=get_series(run))
 
 # Funciones
