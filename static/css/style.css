@@ -189,7 +189,7 @@
   }
   
   table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 16px;
@@ -229,8 +229,46 @@
 a {
     text-decoration: none;
 }
+/* tabla rentabilidad_acumulada */
 .contenedor {
   width: 900px;
   margin: 0 auto;
   height: 400px;
   overflow-x: auto;`}
+
+  select{
+    height: 30px;
+}
+
+label{
+    height: 30px;
+    width: 100px;
+}
+
+.form-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.form-table td {
+    border: 1px solid transparent;
+    padding: 8px;
+}
+
+.form-table td:first-child {
+    width: 20%;
+    text-align: left;
+}
+
+.form-table td:last-child {
+    width: 80%;
+    text-align: left;
+}
+
+.boton {
+    margin-top: 10px;
+}
+
+.asidebar {
+    color: #ddd;
+}
