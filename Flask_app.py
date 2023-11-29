@@ -14,13 +14,20 @@ def index():
 def fondos_mutuos():
     return render_template('index.html')
 
+
+@app.route('/Inicio')
+def Inicio():
+    return render_template('inicio.html')
+
+
 @app.route('/rentabilidades', methods=['GET', 'POST'])
 def rentabilidades():
     fecha_datepicker = request.form.get('datepicker')
     df = pd.read_csv('uploads/rentabilidades_acumuladas.csv', sep=";", index_col=None)
-#Pasar rentabilidad a porcentaje
+#Pasar rentabilidad a 
+    df['rentabilidad_acumulada'] = pd.to_numeric(df['rentabilidad_acumulada'], errors='coerce')
     df['rentabilidad_acumulada'] = (df['rentabilidad_acumulada'] * 100).map('{:.2f}%'.format)
-
+    df['rentabilidad_acumulada'] = df['rentabilidad_acumulada'].str.replace('nan%', '-')
     df['fecha'] = pd.to_datetime(df['fecha'], format='%Y-%m-%d')
     fechas = df['fecha'].unique()
 

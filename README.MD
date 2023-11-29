@@ -13,5 +13,6 @@ source myenv/bin/activate
 pip install -r requirements.txt
 
 # Ejecutar la aplicación Flask_app
-python Flask_app.py
+
+
 
