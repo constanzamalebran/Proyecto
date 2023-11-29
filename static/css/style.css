@@ -1,220 +1,108 @@
-/*
-    ESTILO PARA UNA PÁGINA DE FINANZAS
-*/
+/* helpers/grid.css */
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
-body {
-    font-family: 'Helvetica', sans-serif;/*Poppins-sans-serif*/
-    background: #adf5aa;/*Bordes*/
-    color: #0c0d0c; /*subtitulos*/
-}
-
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #0b0b0b;/*letra*/
-}
-
-a,
-a:hover,
-a:focus {
-    color: #000812;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-.navbar {
-    padding: 15px 10px;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 40px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
-}
-
-.line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
-}
-
-/* SIDEBAR STYLE */
-.wrapper {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-}
-
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    background: #4c8c68;
-    color: #080707;
-    transition: all 0.3s;
-    height: 100vh;
-}
-
-#sidebar.active {
-    margin-left: -250px;
-}
-
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: rgb(18, 117, 31) 78, 57);
-}
-
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #1b7558;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}
-
-#sidebar ul li a:hover {
-    color: #007BFF;
-    background: #fff;
-}
-
-#sidebar ul li.active>a,
-a[aria-expanded="true"] {
-    color: #fff;
-    background: #0e0e0f;
-}
-
-a[data-toggle="collapse"] {
-    position: relative;
-}
-
-.dropdown-toggle::after {
-    display: block;
+.grid {
+    inline-size: 90%;
+    margin-inline: auto;
+    max-inline-size: 48em;
+  }
+  
+  /* helpers/sticky.css */
+  
+  .sticky {
+    position: sticky;
+    will-change: transform;
+  }
+  
+  .sticky--top {
+    top: 0;
+  }
+  
+  /* layout/base.css */
+  
+  * {
+    box-sizing: inherit;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.75;
+    margin: 0;
+    min-block-size: 100vh;
+  }
+  
+  /* layout/header.css */
+  
+  .header {
+    background-color: #fff;
+    padding-block: 1em;
+  }
+  
+  
+  .header::after {
+    bottom: 0;
+    box-shadow: 0 0.0625em 0.5em rgba(0, 0, 0, 0.3);
+    content: '';
+    left: 0;
+    opacity: 0;
     position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
-
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #090909;
-}
-
-ul.CTAs {
-    padding: 20px;
-}
-
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
+    right: 0;
+    top: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+  }
+  
+  .header.is-active::after {
+    opacity: 1;
+  }
+  
+  /* layout/main.css */
+  
+  .main {
+    padding-block: 6em;
+  }
+  
+  /* modules/headline.css */
+  
+  h1 {
+    margin-block: 0 0.5em;
+  }
+  
+  /* modules/navigation.css */
+  
+  .navigation__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navigation__list--inline {
+    display: flex;
+    gap: 1.5em;
+  }
+  
+  .navigation__link {
+    color: inherit;
     display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-a.download {
-    background: #fff;
-    color: #007BFF;
-}
-
-a.article,
-a.article:hover {
-    background: #29354E !important;
-    color: #fff !important;
-}
-
-/* CONTENT STYLE */
-#content {
-    width: calc(100% - 15px);
-    padding: 20px;
-    min-height: 100vh;
-    transition: all 0.3s;
-    margin-left: 15px;
-    background: #fff;
-}
-
-/* Encabezados */
-h1, h2 {
-    color: #29354E;
-}
-
-/* MEDIAQUERIES */
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
-    #sidebarCollapse span {
-        display: none;
-    }
-    table {
-        display: block;
-        white-space: nowrap;
-    }
-
-    th, td {
-        white-space: nowrap;
-    }
-}
-
-/* Estilos para Tablas */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 12px;
-    text-align: left;
-}
-
-th {
-    background-color: #394867;
+    padding-inline: 1em;
+    text-decoration: none;
+  }
+  
+  .navigation__link--is-active {
+    background-color: #000;
+    border-radius: 999em;
     color: #fff;
-}
-
-tr:hover {
-    background-color: #f5f5f5;
-}
-
-/* Estilos para Tablas Responsivas en Pantallas Pequeñas */
-@media (max-width: 768px) {
-    table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    th, td {
-        white-space: nowrap;
-    }
-}
-
+  }
+  
+  /* modules/paragraph.css */
+  
+  p {
+    padding-block: 1.5em;
+  }
+/* calendario*/
 /* Datepicker */
 #datepicker {
     width: 80px;
@@ -292,83 +180,50 @@ tr:hover {
     font-weight: bold;
     font-size: 15px;
 }
-
-/* Botones */
-/* Estilo para el botón Obtener Rentabilidades */
-.boton {
-    background-color: #007BFF;
-    color: #fff;
-    height: 30px;
-    padding: 10px 20px;
-    font-size: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 10px 0;
-}
-
-/* Cambio de color al pasar el ratón sobre el botón */
-.boton:hover {
-    background-color: #0056b3;
-}
-
-/* Estilo para los enlaces */
-/* Estilo para el enlace específico con identificador */
-#aunder {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.contenedor {
-    width: 900px;
-    margin: 0 auto;
-    height: 400px;
-    overflow-x: auto;
-}
-
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-select{
-    height: 30px;
-}
-
-label{
-    height: 30px;
-    width: 100px;
-}
-
-.form-table {
-    border-collapse: collapse;
+/* Estilo general para la tabla */
+.table-container {
+    max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto;
+  }
+  
+  table {
     width: 100%;
-}
-
-.form-table td {
-    border: 1px solid transparent;
-    padding: 8px;
-}
-
-.form-table td:first-child {
-    width: 20%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Estilo para las celdas de encabezado */
+  th {
+    background-color: #f2f2f2;
+    padding: 12px;
     text-align: left;
-}
-
-.form-table td:last-child {
-    width: 80%;
-    text-align: left;
-}
-
-.boton {
-    margin-top: 10px;
-}
-
-.asidebar {
-    color: #ddd;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  /* Estilo alternativo para filas */
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilo para las celdas de datos */
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Estilo de hover (efecto al pasar el ratón) */
+  tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Estilo para el borde exterior de la tabla */
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  /* Estilo para los enlaces sin subrayado */
+a {
+    text-decoration: none;
 }

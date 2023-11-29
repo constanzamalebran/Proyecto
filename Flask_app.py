@@ -7,18 +7,13 @@ app = Flask(__name__)
 
 # Rutas
 @app.route('/')
+@app.route('/inicio')
 def index():
-    return render_template('index.html')
+    return render_template('inicio.html')
 
 @app.route('/fondos-mutuos')
 def fondos_mutuos():
     return render_template('index.html')
-
-
-@app.route('/Inicio')
-def Inicio():
-    return render_template('inicio.html')
-
 
 @app.route('/rentabilidades', methods=['GET', 'POST'])
 def rentabilidades():
@@ -79,21 +74,21 @@ def detalle_fondo(run):
 # Funciones
 def get_rentabilidades(df):
     df['Run Fondo'] = df["Run Fondo"].apply(crear_enlace)
-    html_table = df.to_html(classes='table', index=False, escape=False)
+    html_table = df.to_html(classes='table-container', index=False, escape=False)
     return html_table
 
 def get_detalle_fondo(run):
     df = pd.read_csv('uploads/detalle_fondo.csv', sep=";", index_col=None)
     df['Run Fondo'] = df['Run Fondo'].astype(str)
     df = df[df['Run Fondo'] == run]
-    html_table = df.to_html(classes='table', index=False, escape=False)
+    html_table = df.to_html(classes='table-container', index=False, escape=False)
     return html_table
 
 def get_series(run):
     df = pd.read_csv('uploads/series.csv', sep=";", index_col=None)
     df['Run Fondo'] = df['Run Fondo'].astype(str)
     df = df[df['Run Fondo'] == run]
-    html_table = df.to_html(classes='table', index=False, escape=False)
+    html_table = df.to_html(classes='table-container', index=False, escape=False)
     return html_table
 
 def get_portafolio(run, tipo_cartera, fecha):

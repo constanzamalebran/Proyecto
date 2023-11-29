@@ -17,32 +17,69 @@
 <body>
 
     <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>App Fondos Mutuos</h3>
-            </div>
-            <ul class="list-unstyled components">
-                <li>
-                    <a class="asidebar" href="{{ url_for('fondos_mutuos') }}">Inicio</a>
-                </li>
-                <li>
-                    <a class="asidebar" href="{{ url_for('fondos_mutuos') }}">¿Qué son los Fondos Mutuos?</a>
-                </li>
-                <li>
-                    <a class="asidebar" href="{{ url_for('fondos_mutuos') }}">¿Cómo funcionan las Rentabilidades?</a>
-                </li>
-                <li>
-                    <a class="asidebar" href="{{ url_for('rentabilidades') }}">Rentabilidades Fondos Mutuos</a>
-                </li>
-                <li>
-                    <a class="asidebar" href="{{ url_for('portafolios') }}">Portafolio Fondos Mutuos</a>
-                </li>
+    <header class="header sticky sticky--top js-header">
+
+        <div class="grid">
+      
+          <nav class="navigation">
+            <ul class="navigation__list navigation__list--inline">
+            <li class="navigation__item"><a id="4" href="{{ url_for('index') }}" class="navigation__link">Página principal</a></li>
+              <li class="navigation__item"><a id="1" href="{{ url_for('fondos_mutuos') }}" class="navigation__link">Sobre FFMM</a></li>
+              <li class="navigation__item"><a id="2" href="{{ url_for('rentabilidades') }}" class="navigation__link" onclick="cambiarClase(this)" >Rentabilidades FFMM</a></li>
+              <li class="navigation__item"><a id="3" href="{{ url_for('portafolios') }}" class="navigation__link">Portafolio FFMM</a></li>
             </ul>
-        </nav>
-        <div id="content">
-            {% block content %}{% endblock %}
+          </nav>
+      
         </div>
+      
+      </header>
+      <div id="content">
+        {% block content %}{% endblock %}
     </div>
+</div>
+<script>
+    function cambiarClaseSegunRuta() {
+    var rutaActual = obtenerRutaActual();
+
+    // Verificar la ruta actual y cambiar la clase según el ID
+    if (rutaActual.includes("fondos-mutuos")) {
+        cambiarClasePorId(1);
+    } else if (rutaActual.includes("rentabilidades")) {
+        cambiarClasePorId(2);
+    } else if (rutaActual.includes("portafolios")) {
+        cambiarClasePorId(3);
+    } else if (rutaActual.includes("inicio")) {
+        cambiarClasePorId(4);
+
+    }
+}
+
+function cambiarClasePorId(id) {
+    // Obtener el elemento por su ID
+    var elemento = document.getElementById(id);
+
+    // Verificar la clase actual y cambiarla
+    if (elemento.classList.contains("navigation__link")) {
+        elemento.classList.remove("navigation__link");
+        elemento.classList.add("navigation__link--is-active");
+    } else {
+        elemento.classList.remove("navigation__link--is-active");
+        elemento.classList.add("navigation__link");
+    }
+}
+
+// Llamada a la función principal
+cambiarClaseSegunRuta();
+    function obtenerRutaActual() {
+    return window.location.href;
+}
+// Almacena la ruta actual en una variable
+var rutaActual = obtenerRutaActual();
+
+// Ejemplo de uso
+console.log("Ruta actual: " + rutaActual);
+
+</script>
 </body>
 </html>
+
