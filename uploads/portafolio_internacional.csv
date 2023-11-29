@@ -1,4 +1,4 @@
-"fecha";"Run Fondo";"nen instrum";"nombre_emisor";"cod_pais_emisor";"tipo_instrumento";"fecha_de_vencimiento";"sit_del_instr";"clasificación_riesgo";"nombre_grupo_emp";"cantidad_unidades";"tipo_unidades";"tir";"cod_val";"valor_par";"valor_relevante";"base_tasa";"tipo_de_interés";"val_cierre";"cod_mon_liq";"cod_país_trans";"porc_capital_emisor";"porc_activo_emisor";"porc_activo_fondo"
+"fecha";"Run Fondo";"nen instrum";"nombre emisor";"cod pais emisor";"tipo instrumento";"fecha de vencimiento";"sit del instr";"clasificación riesgo";"nombre grupo emp";"cantidad unidades";"tipo unidades";"tir";"cod val";"valor par";"valor relevante";"base tasa";"tipo de interés";"val cierre";"cod mon liq";"cod país trans";"porc capital emisor";"porc activoemisor";"porc activo fondo"
 2023-01-31;"8032";ECH US;ISHARES MCSI CHILE CAPPED ETF;US;ETFA;;1;NA;NA;173686;PROM;;3;;23533.23;0;NA;4087393;PROM;US;0;0;5.188
 2023-01-31;"8032";IEF US;ISHARES 7-10 YEAR TREASURY BON;US;ETFB;;1;NA;NA;7038;PROM;;3;;79792.62;0;NA;561580;PROM;US;0;0;0.713
 2023-01-31;"8032";ILF US;ISHARES LATAM AMERICA 40 ETF;US;ETFA;;1;NA;NA;67616;PROM;;3;;20493.05;0;NA;1385658;PROM;US;0;0;1.759
