@@ -59,6 +59,7 @@
   .header.is-active::after {
     opacity: 1;
   }
+
   
   /* layout/main.css */
   
@@ -228,3 +229,8 @@
 a {
     text-decoration: none;
 }
+.contenedor {
+  width: 900px;
+  margin: 0 auto;
+  height: 400px;
+  overflow-x: auto;
